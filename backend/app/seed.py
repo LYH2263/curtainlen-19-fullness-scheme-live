@@ -11,7 +11,7 @@ def init_db():
     if c.execute("SELECT COUNT(*) c FROM windows").fetchone()["c"] == 0:
         c.executemany("INSERT INTO windows(name,width,height,fullness,data_quality,note) VALUES (?,?,?,?,?,?)",[
             ("客厅落地窗",3.0,2.6,2.0,"clean",""),
-            ("卧室窗",2.2,1.5,2.0,"clean",""),
+            ("卧室窗",2.2,1.5,None,"clean","跟随默认褶倍"),
             ("脏数据-零宽",0.0,2.0,2.0,"dirty","宽度为0"),
         ])
         c.executemany("INSERT INTO fabrics(name,fabric_width,hem_top,hem_bottom,data_quality,note) VALUES (?,?,?,?,?,?)",[

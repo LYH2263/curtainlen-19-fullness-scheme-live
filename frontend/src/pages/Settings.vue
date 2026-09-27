@@ -1,7 +1,4 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-import { getJSON } from '../api'
-const s = ref({})
-onMounted(async () => { s.value = await getJSON('/api/settings') })
+import FullnessEditor from '../components/FullnessEditor.vue'
 </script>
-<template><div class="page"><h1>设置</h1><p>默认褶倍 {{ s.default_fullness }}</p></div></template>
+<template><div class="page"><h1>设置</h1><FullnessEditor /></div></template>
