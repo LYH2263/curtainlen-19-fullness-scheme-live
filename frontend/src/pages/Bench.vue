@@ -15,5 +15,6 @@ async function go(save){ out.value = save ? await postJSON('/api/estimate',{wind
 <select v-model.number="wid"><option v-for="x in windows" :key="x.id" :value="x.id">{{ x.name }}</option></select>
 <select v-model.number="fid"><option v-for="x in fabrics" :key="x.id" :value="x.id">{{ x.name }}</option></select>
 <button @click="go(false)">试算</button><button @click="go(true)">保存</button>
+<p v-if="out">褶倍 {{ out.fullness }}（{{ out.fullness_source === 'window' ? '本窗自定义' : '默认方案' }}）· 成品宽 {{ out.finished_width }} m</p>
 <PanelCut v-if="out" :panels="out.panels" :cut-height="out.cut_height" :meters="out.meters" />
 </div></template>
